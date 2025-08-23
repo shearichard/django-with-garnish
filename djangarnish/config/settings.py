@@ -71,8 +71,8 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
-        "APP_DIRS": True,
+        'DIRS': [BASE_DIR / 'templates'],  # project-level templates directory
+        'APP_DIRS': True,                  # allow app templates to be found
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
@@ -82,6 +82,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = "config.wsgi.application"
 
