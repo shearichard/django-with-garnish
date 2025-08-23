@@ -2,6 +2,7 @@ from django import forms
 from .models import Country, City
 
 
+
 class CountryForm(forms.ModelForm):
     class Meta:
         model = Country
@@ -11,17 +12,17 @@ class CountryForm(forms.ModelForm):
             "population": "Population",
             "area_sq_km": "Area (sq. km)",
         }
-        widgets = {
-            "country_iso_code": forms.Select(
-                attrs={"class": "form-select", "placeholder": "Select a country"}
-            ),
-            "population": forms.NumberInput(
-                attrs={"class": "form-control", "placeholder": "Enter population", "min": 0}
-            ),
-            "area_sq_km": forms.NumberInput(
-                attrs={"class": "form-control", "placeholder": "Enter area in sq. km", "min": 0}
-            ),
+        help_texts = {
+            "country_iso_code": "Select the ISO code for the country.",
+            "population": "Enter the total population of the country.",
+            "area_sq_km": "Enter the total area of the country in square kilometers.",
         }
+        widgets = {
+            "country_iso_code": forms.Select(attrs={"class": "form-select"}),
+            "population": forms.NumberInput(attrs={"class": "form-control", "min": 0}),
+            "area_sq_km": forms.NumberInput(attrs={"class": "form-control", "min": 0}),
+        }
+
 
 
 class CityForm(forms.ModelForm):
@@ -47,31 +48,26 @@ class CityForm(forms.ModelForm):
             "elevation_metres": "Elevation (m)",
             "some_number": "Some Number",
         }
+        help_texts = {
+            "country": "Select the country this city belongs to.",
+            "city_name": "Enter the name of the city.",
+            "mayor_name": "Enter the current mayor's full name.",
+            "date_of_last_mayoral_election": "Provide the date of the last mayoral election (if known).",
+            "population": "Enter the city's total population.",
+            "area_sq_km": "Enter the area of the city in square kilometers.",
+            "elevation_metres": "Enter the city's elevation in meters above sea level.",
+            "some_number": "Optional field for any numeric value you wish to record.",
+        }
         widgets = {
             "country": forms.Select(attrs={"class": "form-select"}),
-            "city_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter city name"}),
-            "mayor_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter mayor's name"}),
+            "city_name": forms.TextInput(attrs={"class": "form-control"}),
+            "mayor_name": forms.TextInput(attrs={"class": "form-control"}),
             "date_of_last_mayoral_election": forms.DateInput(
                 attrs={"class": "form-control", "type": "date"}
             ),
-            "population": forms.NumberInput(
-                attrs={"class": "form-control", "placeholder": "Enter population", "min": 0}
-            ),
-            "area_sq_km": forms.NumberInput(
-                attrs={"class": "form-control", "placeholder": "Enter area in sq. km", "min": 0}
-            ),
-            "elevation_metres": forms.NumberInput(
-                attrs={"class": "form-control", "placeholder": "Enter elevation in meters"}
-            ),
-            "some_number": forms.NumberInput(
-                attrs={"class": "form-control", "placeholder": "Enter a number"}
-            ),
+            "population": forms.NumberInput(attrs={"class": "form-control", "min": 0}),
+            "area_sq_km": forms.NumberInput(attrs={"class": "form-control", "min": 0}),
+            "elevation_metres": forms.NumberInput(attrs={"class": "form-control"}),
+            "some_number": forms.NumberInput(attrs={"class": "form-control"}),
         }
-
-    def clean_city_name(self):
-        """Custom form-level validation example."""
-        name = self.cleaned_data.get("city_name")
-        if name and len(name.strip()) < 2:
-            raise forms.ValidationError("City name must be at least 2 characters long.")
-        return name
 
