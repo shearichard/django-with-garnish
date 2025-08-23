@@ -1,41 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Geography Project{% endblock %}</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap 5 + Bootswatch Yeti from CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/yeti/bootstrap.min.css" rel="stylesheet" integrity="sha384-6FEn9Z2Z1k1Gz4X7u6p+QW4N+1lRZnGcF4GkStPcmGzLx0m3jW6bHSzTP2Bj1R9S" crossorigin="anonymous">
+    <title>{% block title %}Geography App{% endblock %}</title>
 
-    <!-- Optional: custom CSS -->
-    {% block extra_css %}{% endblock %}
-</head>
-<body>
-
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">Geography Project</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+    <!-- Bootswatch Yeti theme -->
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.2/dist/yeti/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">Geography App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link" href="{% url 'country_create' %}">Add Country</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'city_create' %}">Add City</a></li>
-            </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'country_list' %}">Countries</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'city_list' %}">Cities</a>
+            </li>
+          </ul>
         </div>
-    </div>
-</nav>
+      </div>
+    </nav>
 
-<div class="container">
-    {% block content %}{% endblock %}
-</div>
+    <main class="container mt-4">
+      {% block content %}{% endblock %}
+    </main>
 
-<!-- Bootstrap JS (popper included) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-7pD8j0rO1Ijzsvd+9v+Q3EeVpPRvD0x+R2XsQ3n+zY6O4E3hIRcKxBvXejVJv91I" crossorigin="anonymous"></script>
-
-{% block extra_js %}{% endblock %}
-</body>
+    <!-- Bootstrap bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
 

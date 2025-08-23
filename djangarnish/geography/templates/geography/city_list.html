@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Cities</h2>
+  <a href="{% url 'city_create' %}" class="btn btn-success">Add City</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>City</th>
+      <th>Country</th>
+      <th>Mayor</th>
+      <th>Population</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for city in cities %}
+      <tr>
+        <td>{{ city.city_name }}</td>
+        <td>{{ city.country.country_iso_code }}</td>
+        <td>{{ city.mayor_name }}</td>
+        <td>{{ city.population }}</td>
+        <td>
+          <a href="{% url 'city_update' city.pk %}" class="btn btn-sm btn-primary">Edit</a>
+          <a href="{% url 'city_delete' city.pk %}" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="5" class="text-center">No cities found.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+

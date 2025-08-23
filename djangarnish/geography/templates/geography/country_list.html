@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Countries</h2>
+  <a href="{% url 'country_create' %}" class="btn btn-success">Add Country</a>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ISO Code</th>
+      <th>Population</th>
+      <th>Area (sq km)</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for country in countries %}
+      <tr>
+        <td>{{ country.country_iso_code }}</td>
+        <td>{{ country.population }}</td>
+        <td>{{ country.area_sq_km }}</td>
+        <td>
+          <a href="{% url 'country_update' country.pk %}" class="btn btn-sm btn-primary">Edit</a>
+          <a href="{% url 'country_delete' country.pk %}" class="btn btn-sm btn-danger">Delete</a>
+        </td>
+      </tr>
+    {% empty %}
+      <tr>
+        <td colspan="4" class="text-center">No countries found.</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
+
