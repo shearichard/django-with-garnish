@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "01402f8dc9d35bfea3580657fb4b4736b47c459893b1854d4d398eb89bce5fb1"
+            "sha256": "10343f4c2cedf556082a9d6280745d526c00db9e9e686266da34477d25e3fca6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -34,6 +34,15 @@
             "markers": "python_version >= '3.10'",
             "version": "==5.2.5"
         },
+        "django-easy-logging": {
+            "hashes": [
+                "sha256:10dd64047bc32df31f3fafdc29e307f797faeb1a9eef27f6c4d3ec03006802ac",
+                "sha256:c318cb34ead1b75483842cae84fcc0dc56dc2fa3bf3e54dd6fba5634732a15cf"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.7'",
+            "version": "==0.70"
+        },
         "django-environ": {
             "hashes": [
                 "sha256:227dc891453dd5bde769c3449cf4a74b6f2ee8f7ab2361c93a07068f4179041a",
@@ -51,6 +60,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==4.1"
+        },
+        "loguru": {
+            "hashes": [
+                "sha256:19480589e77d47b8d85b2c827ad95d49bf31b0dcde16593892eb51dd18706eb6",
+                "sha256:31a33c10c8e1e10422bfd431aeb5d351c7cf7fa671e3c4df004162264b28220c"
+            ],
+            "markers": "python_version >= '3.5' and python_version < '4.0'",
+            "version": "==0.7.3"
         },
         "sqlparse": {
             "hashes": [
