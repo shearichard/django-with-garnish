@@ -2,7 +2,6 @@ from django import forms
 from .models import Country, City
 
 
-
 class CountryForm(forms.ModelForm):
     class Meta:
         model = Country
@@ -22,7 +21,6 @@ class CountryForm(forms.ModelForm):
             "population": forms.NumberInput(attrs={"class": "form-control", "min": 0}),
             "area_sq_km": forms.NumberInput(attrs={"class": "form-control", "min": 0}),
         }
-
 
 
 class CityForm(forms.ModelForm):
@@ -60,8 +58,8 @@ class CityForm(forms.ModelForm):
         }
         widgets = {
             "country": forms.Select(attrs={"class": "form-select"}),
-            "city_name": forms.TextInput(attrs={"class": "form-control"}),
-            "mayor_name": forms.TextInput(attrs={"class": "form-control"}),
+            "city_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter city name"}),
+            "mayor_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "Enter mayor's name"}),
             "date_of_last_mayoral_election": forms.DateInput(
                 attrs={"class": "form-control", "type": "date"}
             ),
@@ -70,4 +68,20 @@ class CityForm(forms.ModelForm):
             "elevation_metres": forms.NumberInput(attrs={"class": "form-control"}),
             "some_number": forms.NumberInput(attrs={"class": "form-control"}),
         }
+
+    def clean_city_name(self):
+        """Form-level validation example: city name must have at least 2 characters."""
+        name = self.cleaned_data.get("city_name")
+        if name and len(name.strip()) < 2:
+            raise forms.ValidationError("City name must be at least 2 characters long.")
+        return name
+
+
+
+
+
+
+
+
+
 
