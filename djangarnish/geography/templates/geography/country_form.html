@@ -1,24 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{% if form.instance.pk %}Edit Country{% else %}Add Country{% endif %}</h1>
-
-<form method="post" novalidate>
-  {% csrf_token %}
-  <div class="row">
-    {% for field in form %}
-      <div class="col-md-6 mb-3">
-        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
-        {{ field }}
-        {% if field.help_text %}
-          <div class="form-text">{{ field.help_text }}</div>
-        {% endif %}
-        {% for error in field.errors %}
-          <div class="text-danger small">{{ error }}</div>
-        {% endfor %}
+<h1>{{ form.instance.pk|yesno:"Edit Country,Add Country" }}</h1>
+<div class="row justify-content-center">
+  <div class="col-12 col-md-6 col-lg-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Save</button>
+			<a href="{% url 'geography:country_list' %}" class="btn btn-secondary">Cancel</a>
+          </div>
+        </form>
       </div>
-    {% endfor %}
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Save</button>
-  <a href="{% url 'geography:country_list' %}" class="btn btn-secondary">Cancel</a>
-</form>
+</div>
 {% endblock %}
