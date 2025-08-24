@@ -1,39 +1,37 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-3">
-  <h2>Cities</h2>
-  <a href="{% url 'city_create' %}" class="btn btn-success">Add City</a>
+<h1>Cities</h1>
+<a href="{% url 'geography:city_create' %}" class="btn btn-success mb-3">Add City</a>
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Country</th>
+        <th scope="col">Population</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for city in cities %}
+        <tr>
+          <td class="text-break">{{ city.city_name }}</td>
+          <td class="text-break">{{ city.country.country_name }}</td>
+          <td>{{ city.population }}</td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group">
+              <a href="{% url 'geography:city_update' city.pk %}" class="btn btn-primary">Edit</a>
+              <a href="{% url 'geography:city_delete' city.pk %}" class="btn btn-danger">Delete</a>
+            </div>
+          </td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="4">No cities available.</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>City</th>
-      <th>Country</th>
-      <th>Mayor</th>
-      <th>Population</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for city in cities %}
-      <tr>
-        <td>{{ city.city_name }}</td>
-        <td>{{ city.country.country_iso_code }}</td>
-        <td>{{ city.mayor_name }}</td>
-        <td>{{ city.population }}</td>
-        <td>
-          <a href="{% url 'city_update' city.pk %}" class="btn btn-sm btn-primary">Edit</a>
-          <a href="{% url 'city_delete' city.pk %}" class="btn btn-sm btn-danger">Delete</a>
-        </td>
-      </tr>
-    {% empty %}
-      <tr>
-        <td colspan="5" class="text-center">No cities found.</td>
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
 {% endblock %}
-

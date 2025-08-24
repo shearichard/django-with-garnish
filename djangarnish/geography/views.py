@@ -11,7 +11,7 @@ def country_create(request):
         form = CountryForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('country_list')
+            return redirect('geography:country_list')
     else:
         form = CountryForm()
     return render(request, 'geography/country_form.html', {'form': form})
@@ -23,7 +23,7 @@ def country_update(request, pk):
         form = CountryForm(request.POST, instance=country)
         if form.is_valid():
             form.save()
-            return redirect('country_list')
+            return redirect('geography:country_list')
     else:
         form = CountryForm(instance=country)
     return render(request, 'geography/country_form.html', {'form': form})
@@ -33,7 +33,7 @@ def country_delete(request, pk):
     country = get_object_or_404(Country, pk=pk)
     if request.method == 'POST':
         country.delete()
-        return redirect('country_list')
+        return redirect('geography:country_list')
     return render(request, 'geography/country_confirm_delete.html', {'country': country})
 
 
@@ -51,7 +51,7 @@ def city_create(request):
         form = CityForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('city_list')
+            return redirect('geography:city_list')
     else:
         form = CityForm()
     return render(request, 'geography/city_form.html', {'form': form})
@@ -63,7 +63,7 @@ def city_update(request, pk):
         form = CityForm(request.POST, instance=city)
         if form.is_valid():
             form.save()
-            return redirect('city_list')
+            return redirect('geography:city_list')
     else:
         form = CityForm(instance=city)
     return render(request, 'geography/city_form.html', {'form': form})
@@ -73,7 +73,7 @@ def city_delete(request, pk):
     city = get_object_or_404(City, pk=pk)
     if request.method == 'POST':
         city.delete()
-        return redirect('city_list')
+        return redirect('geography:city_list')
     return render(request, 'geography/city_confirm_delete.html', {'city': city})
 
 

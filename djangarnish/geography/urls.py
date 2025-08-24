@@ -1,6 +1,8 @@
 from django.urls import path, include
 from . import views
 
+app_name = "geography"
+
 urlpatterns = [
     path('countries/', views.country_list, name='country_list'),
     path('countries/add/', views.country_create, name='country_create'),

@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="text-center">
-  <h1 class="mt-4">Welcome to the Geography App</h1>
-  <p class="lead">Manage Countries and Cities easily.</p>
-  <a href="{% url 'country_list' %}" class="btn btn-primary m-2">View Countries</a>
-  <a href="{% url 'city_list' %}" class="btn btn-secondary m-2">View Cities</a>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body text-center">
+          <h1 class="mb-4">Welcome to the Geography App</h1>
+          <p class="lead">
+            Use the navigation bar to view and manage countries and cities.
+          </p>
+          <a href="{% url 'geography:country_list' %}" class="btn btn-primary me-2">Browse Countries</a>
+          <a href="{% url 'geography:city_list' %}" class="btn btn-secondary">Browse Cities</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
-
