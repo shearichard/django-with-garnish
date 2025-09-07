@@ -11,7 +11,7 @@ urlpatterns = [
 
     # Home page
     path('', views.home, name='home'),
-    path('', views.favicon_view, name='favicon'),
+    path('favicon.ico', views.favicon_view, name='favicon'),
 
     # Geography app URLs
     path('geography/', include('geography.urls')),
