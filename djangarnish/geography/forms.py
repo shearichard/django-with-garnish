@@ -66,6 +66,19 @@ class CityForm(forms.ModelForm):
 
 
 class CountryForm(forms.ModelForm):
+
+    alternative_name = forms.CharField(
+        min_length=3,
+        max_length=30,
+        widget=forms.TextInput(attrs={"class": "form-control"}),
+        help_text="Enter an alternative name for the country.",
+        error_messages={
+            "min_length": "The alernative name must be at least 3 characters long.",
+            "max_length": "The alernative name cannot be longer than 30 characters.",
+            "required": "Please enter the alternative name.",
+        },
+    )
+
     class Meta:
         model = Country
         fields = "__all__"
@@ -73,6 +86,7 @@ class CountryForm(forms.ModelForm):
             "country_iso_code": forms.Select(attrs={"class": "form-select"}),
             "population": forms.NumberInput(attrs={"class": "form-control"}),
             "area_sq_km": forms.NumberInput(attrs={"class": "form-control"}),
+            "alternative_name": forms.TextInput(attrs={"class": "form-control"}),
         }
         help_texts = {
             "country_iso_code": "Select the ISO 3166-1 alpha-3 country code.",
