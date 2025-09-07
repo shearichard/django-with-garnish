@@ -21,6 +21,7 @@ class Country(models.Model):
     country_iso_code = models.CharField(max_length=3, choices = COUNTRIES)
     population = models.IntegerField()
     area_sq_km = models.IntegerField()
+    alternative_name = models.CharField(max_length=255)
 
 
     class Meta:
