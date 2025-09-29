@@ -21,7 +21,7 @@ class FieldTypeForm(forms.Form):
 
 
 
-@parsleyfy
+#@parsleyfy
 class CityForm(forms.ModelForm):
     mayor_name = forms.CharField(
         min_length=3,
