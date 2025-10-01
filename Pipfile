@@ -11,6 +11,10 @@ django-easy-logging = "*"
 flake8 = "*"
 black = "*"
 whitenoise = "*"
+mkdocs = "*"
+mkdocs-get-deps = "*"
+mkdocs-material = "*"
+mkdocs-material-extensions = "*"
 
 [dev-packages]
 
