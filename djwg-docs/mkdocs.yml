@@ -1,0 +1,17 @@
+site_name: Django with Garnish Documentation
+
+theme:
+  name: 'material'
+  palette:
+    scheme: 'default'
+    primary: 'orange'
+    accent: '#fcfe8f'    
+
+markdown_extensions:
+  - pymdownx.tabbed:
+      alternate_style: true
+  - codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+nav:
+  - Home: index.md
