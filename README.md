@@ -2,7 +2,12 @@
 ## Summary
 Integrating front-end validation for django forms by utilising the constraints defined within django to specify javascript for use on the frontend.
 
-Initially this will be done using the django-parsley package.
+Initially this will be done using the django-parsley package, which in turn relies on the [Parsleyjs](https://parsleyjs.org/) javascript library.
+
+## Parsleyjs Resources
+
+ - [Project Home Page ](https://parsleyjs.org)
+ - [Built-in validators](https://parsleyjs.org/doc/index.html#validators)
 
  
 ## Virtualenv Management
