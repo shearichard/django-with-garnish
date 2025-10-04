@@ -13,7 +13,7 @@ Initially this will be done using the django-parsley package, which in turn reli
 
 ### Documentation and Developer Notes
 
-Documentation can be served locally as described [here][djwg-docs/README.md] 
+Documentation can be served locally as described [here](djwg-docs/README.md) 
 
 ### Virtualenv Management
 [pipenv](https://pipenv.pypa.io/en/latest/) is in use as the virtualenv management tool.
