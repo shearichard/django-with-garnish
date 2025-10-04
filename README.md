@@ -9,16 +9,21 @@ Initially this will be done using the django-parsley package, which in turn reli
  - [Project Home Page ](https://parsleyjs.org)
  - [Built-in validators](https://parsleyjs.org/doc/index.html#validators)
 
- 
-## Virtualenv Management
+## Support Tools
+
+### Documentation and Developer Notes
+
+Documentation can be served locally as described [here][djwg-docs/README.md] 
+
+### Virtualenv Management
 [pipenv](https://pipenv.pypa.io/en/latest/) is in use as the virtualenv management tool.
 
-## Linting
+### Linting
 [flake8](https://flake8.pycqa.org/en/latest/) is used for code quality checking.
 
 Be sure to check the .flake8 file for exclusions from the standard rules.
 
-## Code Formatting
+### Code Formatting
 The [black](https://black.readthedocs.io/en/stable/) is installed for automatted code formatting, if that's your thing.
 
 ----
@@ -38,6 +43,7 @@ I think the parsley.js file is probably the most useful in terms of understandin
 
 
 ### Example of parsleyifed form input element
+
 #### Without @parsleyfy
 ```
 <input 
