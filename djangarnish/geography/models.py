@@ -60,9 +60,6 @@ class CityManager(models.Manager):
 class City(models.Model):
     '''
     Represents a City.
-
-    NB: This model will only exist for a short time while
-    some aspects of pytest are sorted out
     '''
     country = models.ForeignKey(Country, on_delete=models.CASCADE)
     city_name = models.CharField(max_length=255)
@@ -72,6 +69,7 @@ class City(models.Model):
     area_sq_km = models.IntegerField(null=True, blank=True, validators=[validate_not_divisible_by_seven, validate_even])
     elevation_metres = models.IntegerField(null=True, blank=True)
     some_number = models.IntegerField(blank=True, null=True)
+
     '''
     @property
     def country_iso_code(self):
@@ -108,5 +106,4 @@ class City(models.Model):
 
     def __str__(self):
         return f"{self.city_name} ({self.country.country_iso_code})"
-        #return f"{self.city_name}"
 

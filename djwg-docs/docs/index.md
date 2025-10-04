@@ -1,7 +1,5 @@
 # Django with Garnish
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec at sem enim. Curabitur nec lacus mollis, porta lacus non, venenatis purus. Maecenas sodales diam diam, a consectetur mauris aliquet vel. Duis varius metus mattis massa pellentesque, nec maximus arcu fermentum. Praesent mollis, nisi ut aliquam sagittis, enim felis placerat enim, at tempus quam quam eu massa. Nullam non ex nec mi egestas scelerisque ut quis nulla. Vestibulum pretium nulla ut tincidunt ullamcorper. Suspendisse finibus sapien purus, in pharetra dui ornare bibendum. Mauris et consectetur lectus. Aenean ac sapien ut lacus facilisis iaculis nec et lectus. Ut a justo eget tortor dapibus varius. Proin tempus ipsum vitae libero pulvinar, non viverra ex condimentum.
-
-Mauris a diam turpis. Quisque in varius lectus, id posuere est. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque imperdiet venenatis porta. Duis finibus augue sit amet ante lacinia, sodales faucibus orci condimentum. Maecenas massa nulla, vehicula eget turpis eget, vulputate dictum dui. Quisque volutpat hendrerit leo id dignissim. Suspendisse nec orci eget nisi sagittis tempus a vehicula ipsum. Integer eget scelerisque dui. Morbi volutpat pulvinar ipsum, sit amet semper leo euismod non.
+Some notes about the mechanics of how form elements are automatically 'decorated' with validation in this project.
 
 
