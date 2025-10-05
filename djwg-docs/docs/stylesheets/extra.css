@@ -1,0 +1,19 @@
+/* Give a visual border to the line of tabs */
+.md-typeset .tabbed-set > nav {
+  border: 1px solid var(--md-default-fg-color--light);
+  border-radius: 6px;
+  padding: 0.2em 0.6em;
+  background-color: var(--md-default-bg-color--lighter);
+  margin-bottom: 0.5em;
+}
+.md-typeset .tabbed-set > nav label.md-nav__link.md-nav__link--active {
+  border-bottom: 2px solid var(--md-accent-fg-color);
+  font-weight: 600;
+}
+.md-typeset .tabbed-set {
+  border: 1px solid var(--md-default-fg-color--light);
+  border-radius: 8px;
+  padding: 0.5em;
+  margin: 1em 0;
+}
+
