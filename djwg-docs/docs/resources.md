@@ -15,4 +15,3 @@ $ rg --files-with-matches equalto .
 
 I think the parsley.js file is probably the most useful in terms of understanding what is possible.
 
-
